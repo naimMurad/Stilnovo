@@ -24,6 +24,5 @@ describe('Hacer clic en botón precedido por "Pendientes"', () => {
         cy.wait(1000);
         cy.get('button .q-icon.eva.eva-plus-outline').click();
         cy.get('.text-bold.q-mb-sm').contains('Cliente *').parent().find('[aria-label="Buscar"][data-autofocus="true"]').type('Furth');
-        cy.contains('Furth').click();
     });
 });
