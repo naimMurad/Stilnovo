@@ -38,12 +38,22 @@ describe('Nuevo pedido', () => {
         cy.wait(750);
         cy.get('.q-mt-md.q-mb-md').find('.q-field__input.q-placeholder.col').click();
         cy.wait(750);
-        cy.get('.q-menu .q-item').eq(0).click();
+        cy.get('.q-mt-md.q-mb-md').find('.q-field__input.q-placeholder.col').type('Producto de Prueba de Automatización');
+        cy.wait(750);
+        cy.get('.q-menu .q-item').filter(':contains("Producto de Prueba de Automatización")').eq(-1).click();
         cy.wait(750);
         cy.get('input.q-field__native.q-placeholder[placeholder="Cantidad"][type="number"]').type('5').should('have.value', '5');
         cy.wait(750);
         cy.get('button .q-icon.eva.eva-plus-outline').eq(1).click();
         cy.wait(750);
         cy.get('.q-btn.q-btn-item.non-selectable.no-outline.q-btn--flat.q-btn--rectangle.q-btn--actionable.q-focusable.q-hoverable.boton-principal').click();
+        cy.wait(750);
+        cy.get('.q-btn__content.text-center.col.items-center.q-anchor--skip.justify-center.row')
+            .contains('Iniciar producción')
+            .click();
+        cy.wait(750);
+        cy.get('.block')
+            .contains('Confirmar')
+            .click();
     });
 });
