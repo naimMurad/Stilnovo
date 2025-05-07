@@ -2,7 +2,7 @@ let localStorageBackup = {};
 
 before(() => {
     cy.login();
-    // Espera a que la página de pproductos se cargue completamente
+    // Espera a que la página de productos se cargue completamente
     cy.get('.q-page-container', { timeout: 10000 }).should('be.visible'); // Selector más general
     cy.window().then((win) => {
         localStorageBackup = { ...win.localStorage };
@@ -64,12 +64,15 @@ describe('Nuevo producto', () => {
         // Selecciona la primera opción de la lista
         cy.get('.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-focusable.q-hoverable')
             .contains('Pintado')
-            .click();        
-        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(0).click();
+            .click();
         cy.wait(750);
+        cy.get('.block').contains('Producto intermedio').click();
+        cy.wait(750);        
+        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(0).click();
+        cy.wait(750);        
         cy.get('.q-item__label').contains('Prod. Intermedio de prueba de automatización 1').click();
         cy.wait(750);
-                cy.get('.q-field__native[aria-label="Ingresa un valor"]').eq(0)
+                cy.get('.q-field__native[placeholder="0"]').eq(0)
                     .click()
                     .type('1');
         cy.wait(750);
@@ -81,11 +84,14 @@ describe('Nuevo producto', () => {
         cy.get('.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-focusable.q-hoverable')
             .contains('Soldado')
             .click();
-        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(1).click();
         cy.wait(750);
+        cy.get('.block').contains('Producto intermedio').click({ force: true });
+        cy.wait(750);        
+        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(1).click({ force: true });
+        cy.wait(750);        
         cy.get('.q-item__label').contains('Prod. Intermedio de prueba de automatización 2').click();
         cy.wait(750);
-                cy.get('.q-field__native[aria-label="Ingresa un valor"]').eq(1)
+                cy.get('.q-field__native[placeholder="0"]').eq(1)
                     .click()
                     .type('1');
         cy.wait(750);
@@ -97,11 +103,14 @@ describe('Nuevo producto', () => {
         cy.get('.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-focusable.q-hoverable')
             .contains('Cocinado')
             .click();
-        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(2).click();
-        cy.wait(750);
+        cy.wait(750);    
+        cy.get('.block').contains('Producto intermedio').click({ force: true });
+        cy.wait(750);        
+        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(2).click({ force: true });
+        cy.wait(750);        
         cy.get('.q-item__label').contains('Prod. Intermedio de prueba de automatización 3').click();
         cy.wait(750);
-                cy.get('.q-field__native[aria-label="Ingresa un valor"]').eq(2)
+                cy.get('.q-field__native[placeholder="0"]').eq(2)
                     .click()
                     .type('1');
         cy.wait(750);
@@ -113,11 +122,14 @@ describe('Nuevo producto', () => {
         cy.get('.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-focusable.q-hoverable')
             .contains('Carpintería')
             .click();
-        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(3).click();
         cy.wait(750);
+        cy.get('.block').contains('Producto intermedio').click({ force: true });
+        cy.wait(750);        
+        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(3).click({ force: true });
+        cy.wait(750);        
         cy.get('.q-item__label').contains('Prod. Intermedio de prueba de automatización 4').click();
         cy.wait(750);
-                cy.get('.q-field__native[aria-label="Ingresa un valor"]').eq(3)
+                cy.get('.q-field__native[placeholder="0"]').eq(3)
                     .click()
                     .type('1');
         cy.wait(750);
@@ -129,11 +141,14 @@ describe('Nuevo producto', () => {
         cy.get('.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-focusable.q-hoverable')
             .contains('Ensamblado')
             .click();
-        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(4).click();
         cy.wait(750);
+        cy.get('.block').contains('Producto intermedio').click({ force: true });
+        cy.wait(750);        
+        cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(4).click({ force: true });
+        cy.wait(750);        
         cy.get('.q-item__label').contains('Prod. Intermedio de prueba de automatización 5').click();
         cy.wait(750);
-                cy.get('.q-field__native[aria-label="Ingresa un valor"]').eq(4)
+                cy.get('.q-field__native[placeholder="0"]').eq(4)
                     .click()
                     .type('1');
         cy.wait(750);
