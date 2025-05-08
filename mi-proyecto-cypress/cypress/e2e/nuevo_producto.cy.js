@@ -60,25 +60,31 @@ describe('Nuevo producto', () => {
         cy.get('.q-btn__content.text-center.col.items-center.q-anchor--skip.justify-center.row')
             .contains('Siguiente')
             .click();
-        cy.wait(750);        
+        cy.wait(750);       
         // Selecciona la primera opción de la lista
-        cy.get('.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-focusable.q-hoverable')
-            .contains('Pintado')
-            .click();
+        cy.contains('i', 'keyboard_arrow_down').eq(0).click(); // Hacer clic en el primer desplegable
         cy.wait(750);
-        cy.get('.block').contains('Producto intermedio').click();
-        cy.wait(750);        
+        cy.contains('span', 'Materia prima').eq(1).click(); // Selecciona la opción "Materia prima"
+        cy.wait(750);
+        cy.get('input[aria-expanded="true"]').eq(0).click(); // Hacer clic en el primer desplegable
+        cy.wait(750);
+        cy.contains('span', 'Materia prima testing 1').click(); // Selecciona la opción "Materia prima testing 1"
+        cy.wait(750);
+        cy.get('label.q-field--float input').click().type('1');
+        cy.wait(750);
+        cy.contains('span', ' Agregar').eq(0).click(); // Hacer clic en el botón "Agregar" del primer desplegable
+        cy.wait(750);
+        cy.contains('span', 'Producto intermedio').eq(1).click(); // Selecciona la opción "Producto intermedio"
+        cy.wait(750);
+        cy.get('input[aria-expanded="true"]').eq(1).click(); // Hacer clic en el segundo desplegable
+        cy.wait(750);
+        cy.contains('span', 'Prod. Intermedio de prueba de automatización 1').click(); // Selecciona la opción "Prod. Intermedio de prueba de automatización 1"
+        cy.wait(750);
+        cy.get('label.q-field--focused input').eq(1).click().type('1'); // Hacer clic en el campo de cantidad del segundo desplegable
+        cy.wait(750);
+        cy.contains('span', ' Agregar').eq(0).click(); // Hacer clic en el botón "Agregar" del segundo desplegable
+        cy.wait(750);
         cy.get('i.q-icon.eva.eva-chevron-down-outline.q-select__dropdown-icon').eq(0).click();
-        cy.wait(750);        
-        cy.get('.q-item__label').contains('Prod. Intermedio de prueba de automatización 1').click();
-        cy.wait(750);
-                cy.get('.q-field__native[placeholder="0"]').eq(0)
-                    .click()
-                    .type('1');
-        cy.wait(750);
-        cy.get('.q-btn.q-btn-item.non-selectable.no-outline.q-btn--flat.q-btn--rectangle.q-btn--actionable.q-focusable.q-hoverable.boton-principal')
-            .contains('Agregar')
-            .click();
         cy.wait(750);
         // Selecciona la segunda opción de la lista
         cy.get('.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-focusable.q-hoverable')
